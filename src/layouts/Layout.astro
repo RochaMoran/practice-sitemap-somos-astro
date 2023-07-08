@@ -1,4 +1,5 @@
 ---
+import Header from '../components/Header.jsx';
 export interface Props {
 	title: string;
 }
@@ -17,13 +18,15 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
+		<Header client:only />
 		<slot />
 	</body>
 </html>
-<style is:global>
+<style is:global lang="scss">
 	:root {
-		--accent: 124, 58, 237;
-		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), #da62c4 30%, white 60%);
+		$primary-color: #8d8d8d;
+		$secondary-color: #F6F6F6;
+		$tertiary-color: #FFFFFF;
 	}
 	html {
 		font-family: system-ui, sans-serif;
